@@ -1,0 +1,70 @@
+:root {
+ /* Primary Text - Soft Blue Gray */
+ --primaryText: #a2b9cc;
+
+ /* Secondary Text - Deep Navy */
+ --secondaryText: #1f2937;
+
+ /* Link Text - Muted Slate Blue */
+ --linkText: #5d7ea2;
+
+ /* Accent Text - Vibrant Cyan */
+ --alternateText: #39ebcc;
+
+ /* Primary Background - Deep Midnight Blue */
+ --primaryBg: #0a192f;
+
+ /* Additional Complementary Colors */
+ --backgroundAccent: #112240;
+ --hoverEffect: #23395b;
+ --subtleHighlight: #4a6fa5;
+
+
+  // PADDING
+  --pagePadding: 0 7rem;
+  --pageMobilePadding: 0 3.5rem;
+  --bodyPadding: 0 12rem;
+  --bodyMobilePadding: 0 3rem;
+
+  // MARGIN
+  --bodymarginLeft: 12%;
+  --bodyMobileMarginLeft: 2.9rem;
+
+
+  // FONT SIZE
+  --headerTextSize: 1.5rem;
+  --headerMobileTextSize: 2rem;
+
+
+  --navTextSize: 1.5rem;
+  --navMobileTextSize: 1.9rem;
+
+  --bannerTextSize: 6.275rem;
+  --bannerTabletTextSize: 4rem;
+  --bannerMobileTextSize: 5.3rem; // new
+
+
+  --servicesTextSize: 6rem;
+  --servicesTabletTextSize: 5.8rem;
+  --servicesMobileTextSize: 4.2rem;
+
+
+  --workTextSize: 6rem;
+  --workTabletTextSize: 5.8rem;
+  --workMobileTextSize: 4.2rem;
+
+
+  --historyTextSize: 1.8rem;
+  --historyMobileTextSize: 1.6rem; // new
+
+  --bodyMdTextSize: 7.5rem;
+  --bodyMobileMdTextSize: 6.6rem; // new
+  --bodyTabletMdTextSize: 5.6rem;
+
+  --bodyMdFontWeight: 700;
+
+
+
+  // --secondary-shadow: rgba(2, 12, 27, 0.7);
+
+}
