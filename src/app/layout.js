@@ -5,8 +5,27 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export const metadata = {
-  title: 'Logan',
-  description: 'Developed by Logan',
+  metadataBase: new URL('https://kiyoo.live'), // Replace with your actual domain
+  title: 'Kiyoonewton - Portfolio',
+  description: 'Developed by Isaac Kolawole',
+  openGraph: {
+    title: 'Kiyoonewton - Portfolio',
+    description: 'Developed by Isaac Kolawole',
+    images: [
+      {
+        url: '/logo.webp', // relative path works now because metadataBase is defined
+        width: 1200,
+        height: 630,
+        alt: 'Kiyoonewton Portfolio OG Image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kiyoonewton - Portfolio',
+    description: 'Developed by Isaac Kolawole',
+    images: ['/logo.webp'],
+  },
 }
 
 export default function RootLayout({ children }) {

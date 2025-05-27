@@ -27,33 +27,39 @@ export default function Index({ setIsHovered }) {
                 {[
                   {
                     time: "NOW",
-                    role: "SeniorSoftware Engineer",
-                    company: "Netchex",
-                    link: "https://www.netchex.com/",
+                    role: "Software Engineer & Team Lead",
+                    company: "Junglecreations Uk",
+                    link: "https://junglecreations.com/",
                   },
                   {
                     time: "2024",
-                    role: "Senior Frontend Engineer",
-                    company: "Optimus AI Labs",
-                    link: "https://optimusai.ai/",
+                    role: "Software Engineer",
+                    company: "Wazobia Technologies",
+                    link: "https://easy-of-dev.vercel.app/",
                   },
                   {
                     time: "2023",
                     role: "Software Engineer",
-                    company: "Simplify Technologies",
-                    link: "https://www.simplifytechnologies.io/",
+                    company: "TBC Technologies",
+                    link: "https://www.linkedin.com/company/the-tbc-dev/",
+                  },
+                  {
+                    time: "2022",
+                    role: "Software Engineer",
+                    company: "Afrilearn Future of Learning",
+                    link: "https://www.myafrilearn.com/",
                   },
                   {
                     time: "2021",
-                    role: "Information Systems Engineer",
-                    company: "Bank of Industry",
-                    link: "https://www.boi.ng/",
+                    role: "Software Engineer (Freelancing)",
+                    company: "Fiverr and Upwork",
+                    link: "https://www.fiverr.com/",
                   },
                   {
-                    time: "2020",
-                    role: "Software Solutions Engineer",
-                    company: "Consol Limited",
-                    link: "https://www.consollimited.com/",
+                    time: "2019",
+                    role: "Software Engineer (Internship)",
+                    company: "Haper-Hit",
+                    // link: "https://www.consollimited.com/",
                   },
                 ].map(({ time, role, company, link }) => (
                   <div key={company} className={`${styles.line} line`}>
@@ -91,41 +97,65 @@ export default function Index({ setIsHovered }) {
           </div>
         </div>
       </main>
-      <main className={styles.main}>
+      <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>
             <div className={styles.wrapper}>
               <h1 className={styles.services}>
                 {[
                   {
-                    name: "Steex",
-                    stack: "ReactJs, MUI, ExpressJs",
-                    href1: "https://github.com/LoganXav/Steex",
-                    href2: "https://steex.vercel.app/",
+                    name: "Junglecreations",
+                    stack: "Gatsby, MUI, DatoCms, GraphQL",
+                    href1: "",
+                    href2: "https://junglecreations.com/",
                   },
                   {
-                    name: "Golfnco",
-                    stack: "NextJs, Supabase, Paystack, Flutterwave",
-                    href1: "https://github.com/LoganXav/Golfnco",
-                    href2: "https://golfnco.vercel.app/",
+                    name: "Twistedfood.co.uk",
+                    stack: "Nextjs, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://twistedfood.co.uk/",
                   },
                   {
-                    name: "ReactCli",
-                    stack: "NodeJs, CommanderJs, Clack",
-                    href1: "https://github.com/LoganXav/SimplifyReactCli",
-                    href2: "",
+                    name: "ViralTrends (VT)",
+                    stack: "Nextjs, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://vt.co/",
                   },
                   {
-                    name: "KeniaAPI",
-                    stack: "NodeJS, Typescript, ExpressJs",
-                    href1: "https://github.com/LoganXav/KeniaAPI",
-                    href2: "",
+                    name: "Fournine",
+                    stack: "Nextjs, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://fournine.net/",
                   },
                   {
-                    name: "My Portfolio",
-                    stack: "Next, Scss, Framer Motion",
-                    href1: "https://github.com/LoganXav/Logan",
-                    href2: "",
+                    name: "Craftfactory",
+                    stack: "Nextjs, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://fournine.net/",
+                  },
+                  {
+                    name: "My Afrilearn",
+                    stack: "Nextjs, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://myafrilearn.com/",
+                  },
+                  {
+                    name: "Kiamoni",
+                    stack: "React, Typescript, wordpress, Laravel",
+                    href1: "",
+                    href2: "https://sonikan.vercel.app/",
+                  },
+                  {
+                    name: "Hivedeck",
+                    stack: "React, Nodejs, Expressjs, MongoDB, Typescript",
+                    href1: "",
+                    href2: "https://easy-of-dev.vercel.app/products-e-commerce",
+                  },
+                  {
+                    name: "Eat up (Template)",
+                    stack: "React, Nodejs, Expressjs, MongoDB, Typescript",
+                    href1: "",
+                    href2: "https://template-eat-3276.vercel.app/",
                   },
                 ].map(({ name, stack, href1, href2 }) => (
                   <div key={name} className={`${styles.line} line`}>
@@ -159,6 +189,9 @@ export default function Index({ setIsHovered }) {
                 <span className={styles.ball}></span>
                 <span className={styles.ball}></span>
               </div>
+              <span className={styles.note}>
+                Note: These are Live projects so there github links are private
+              </span>
             </div>
           </div>
         </div>

@@ -69,6 +69,14 @@
     }
   }
 
+  .note {
+    padding-left: var(--bodymarginLeft);
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    letter-spacing: 0em;
+    font-weight: 500;
+  }
+
   .historyBody {
     width: 100%;
     // height: 75vh;
@@ -183,7 +191,7 @@
       }
 
       .wrapper {
-        font-size: var(--workTextSize);
+        font-size: var(--projectTextSize);
         line-height: 165%;
         letter-spacing: -0.15em;
         text-transform: uppercase;
@@ -191,11 +199,11 @@
         // z-index: 900;
 
         @include respond(tab-land) {
-          font-size: var(--workTabletTextSize);
+          font-size: var(--projectTextSize);
         }
 
         @include respond(tab-port) {
-          font-size: var(--workMobileTextSize);
+          font-size: var(--projectMobileTextSize);
         }
 
         .imgContainer {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { WhatsApp } from "@mui/icons-material";
 
 export default function Index({ setIsHovered }) {
   return (
@@ -16,7 +16,13 @@ export default function Index({ setIsHovered }) {
           <div className={styles.mobileShadeBottom}></div>
         </div>
         <div className={styles.navbar}>
-          <Image className={styles.logo} src="/logo.webp" alt="navbarLogo" width={60} height={60} />
+          <Image
+            className={styles.logo}
+            src="/logo.webp"
+            alt="navbarLogo"
+            width={60}
+            height={60}
+          />
           <div className={styles.links}>
             {[
               {
@@ -26,6 +32,10 @@ export default function Index({ setIsHovered }) {
               {
                 name: "work",
                 hash: "#work",
+              },
+              {
+                name: "project",
+                hash: "#project",
               },
               {
                 name: "contact",
@@ -39,8 +49,14 @@ export default function Index({ setIsHovered }) {
           </div>
         </div>
         <div className={styles.banner}>
-          <h3 className="headerText" style={{color:"#39ebcc"}}>ISAAC KOLAWOLE</h3>
-          <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={styles.wrapper}>
+          <h3 className="headerText" style={{ color: "#39ebcc" }}>
+            ISAAC KOLAWOLE
+          </h3>
+          <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={styles.wrapper}
+          >
             <h1>
               {[
                 {
@@ -70,20 +86,20 @@ export default function Index({ setIsHovered }) {
             <div className={styles.icons}>
               {[
                 {
-                  href: "https://instagram.com/ssegun__",
+                  href: "https://instagram.com/kiyoonewtin",
                   component: <InstagramIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://github.com/LoganXav",
+                  href: "https://github.com/kiyoonewton",
                   component: <GitHubIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://ng.linkedin.com/in/logan10927",
+                  href: "https://linkedin.com/in/kiyoonewton",
                   component: <LinkedInIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://twitter.com/Ssegun_",
-                  component: <TwitterIcon style={{ fontSize: "2rem" }} />,
+                  href: "https://wa.me/2348164415141",
+                  component: <WhatsApp style={{ fontSize: "2rem" }} />,
                 },
               ].map(({ href, component }, idx) => (
                 <span key={idx}>
@@ -94,8 +110,12 @@ export default function Index({ setIsHovered }) {
               ))}
             </div>
             <div className={styles.resume}>
-              <a href="/resume.pdf" download>
-                DOWNLOAD RESUME
+              <a
+                href="https://drive.google.com/file/d/1q3Sr2JPzE1D5fr3pEhXGy16AhjW-ef9e/view"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                VIEW RESUME
               </a>
             </div>
           </div>

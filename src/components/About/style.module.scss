@@ -91,11 +91,11 @@
         // display: flex;
 
         @include respond(tab-land) {
-          font-size: var(--servicesTabletTextSize);
+          font-size: var(--servicesMobileTextSize);
         }
 
         @include respond(tab-port) {
-          font-size: var(--servicesMobileTextSize);
+          font-size: var(--servicesOtherMobileTextSize);
         }
 
         h1 {

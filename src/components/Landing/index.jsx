@@ -2,13 +2,13 @@
 import styles from "./style.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import gsap from "gsap";
 import useMousePosition from "../../utils/useMousePosition";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { WhatsApp } from "@mui/icons-material";
 
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
@@ -47,6 +47,10 @@ export default function Index({}) {
               {
                 name: "work",
                 hash: "#work",
+              },
+              {
+                name: "project",
+                hash: "#project",
               },
               {
                 name: "contact",
@@ -95,20 +99,20 @@ export default function Index({}) {
             <div className={styles.icons}>
               {[
                 {
-                  href: "https://instagram.com/ssegun__",
+                  href: "https://instagram.com/kiyoonewtin",
                   component: <InstagramIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://github.com/LoganXav",
+                  href: "https://github.com/kiyoonewton",
                   component: <GitHubIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://ng.linkedin.com/in/logan10927",
+                  href: "https://linkedin.com/in/kiyoonewton",
                   component: <LinkedInIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
-                  href: "https://twitter.com/Ssegun_",
-                  component: <TwitterIcon style={{ fontSize: "2rem" }} />,
+                  href: "https://wa.me/2348164415141",
+                  component: <WhatsApp style={{ fontSize: "2rem" }} />,
                 },
               ].map(({ href, component }, idx) => (
                 <span key={idx}>
@@ -119,8 +123,8 @@ export default function Index({}) {
               ))}
             </div>
             <div className={styles.resume}>
-              <a href="/resume.pdf" download>
-                DOWNLOAD RESUME
+              <a href="https://drive.google.com/file/d/1q3Sr2JPzE1D5fr3pEhXGy16AhjW-ef9e/view" rel="noopener noreferrer" target="_blank">
+                VIEW RESUME
               </a>
             </div>
           </div>

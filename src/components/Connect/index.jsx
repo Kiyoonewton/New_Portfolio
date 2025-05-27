@@ -17,10 +17,12 @@ export default function Index() {
             <source src="/output_gray1.webm" type="video/webm" />
           </video>
           <div className={styles.mottoContainer}>
-            <h3 className="headerText">Inspiration</h3>
+            <h3 className="headerText" style={{ zIndex: 2 }}>
+              Inspiration
+            </h3>
             <div className={styles.mottoWrapper}>
               <h1>
-                {["Good Design", "Is Honest."].map((line) => (
+                {["Good Code", "is Reliable"].map((line) => (
                   <div key={line} className={`${styles.line} line`}>
                     <div className="text">{line}</div>
                   </div>
@@ -44,23 +46,23 @@ export default function Index() {
                   },
                   {
                     link: "Instagram",
-                    url: "https://instagram.com/ssegun__",
-                  },
-                  {
-                    link: "Twitter",
-                    url: "https://twitter.com/Ssegun_",
+                    url: "https://instagram.com/kiyoonewtin/",
                   },
                   {
                     link: "Github",
-                    url: "https://github.com/LoganXav",
+                    url: "https://github.com/kiyoonewton",
                   },
                   {
                     link: "LinkedIn",
-                    url: "https://www.linked.com/in/logan10927",
+                    url: "https://www.linkedin.com/in/kiyoonewton",
                   },
                   {
                     link: "Mail",
-                    url: "mailto:sogbesansegun22@gmail.com",
+                    url: "mailto:kiyoonewton41@gmail.com",
+                  },
+                  {
+                    link: "Whatsapp",
+                    url: "https://wa.me/2348164415141",
                   },
                 ].map(({ link, url }, index) => (
                   <div key={url} className={styles.bullet}>
@@ -86,11 +88,11 @@ export default function Index() {
               <div className={styles.infoDetails}>
                 <div>
                   <p>Email</p>
-                  <span>sogbesansegun22@gmail.com</span>
+                  <span>kiyoonewton41@gmail.com</span>
                 </div>
                 <div>
                   <p>Phone</p>
-                  <span>+2347043138914</span>
+                  <span>+2348164415141</span>
                 </div>
               </div>
             </div>
