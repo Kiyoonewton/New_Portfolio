@@ -40,13 +40,11 @@ It highlights my projects, experience, and how to get in touch.
 
 ```bash
 .
-├── public/               # Static files (images, favicon, etc.)
+├── public/
 ├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Page-level components (Next.js routing)
-│   ├── styles/           # Tailwind / global styles
-│   └── utils/            # Helper functions, config
-├── tailwind.config.js    # Tailwind customization
-├── next.config.js        # Next.js config
-├── tsconfig.json         # TypeScript (if used)
-└── README.md             # You're here!
+│   ├── app/
+│   ├── components/
+│   ├── scss/
+│   └── utils/
+├── next.config.js
+└── README.md
