@@ -13,7 +13,7 @@ export const metadata = {
     description: 'Developed by Isaac Kolawole',
     images: [
       {
-        url: '/logo.webp', // relative path works now because metadataBase is defined
+        url: 'https://drive.google.com/file/d/1fxlDvEe74TOsu92iRi-v6mN3Q67Eczmc/view', // relative path works now because metadataBase is defined
         width: 1200,
         height: 630,
         alt: 'Kiyoonewton Portfolio OG Image',
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Kiyoonewton - Portfolio',
     description: 'Developed by Isaac Kolawole',
-    images: ['/logo.webp'],
+    images: ['https://drive.google.com/file/d/1fxlDvEe74TOsu92iRi-v6mN3Q67Eczmc/view'],
   },
 }
 
