@@ -1,11 +1,12 @@
 "use client";
+import GitHubCalendar from "react-github-calendar";
 import styles from "./style.module.scss";
 import Link from "next/link";
 
 export default function Index({ setIsHovered }) {
   return (
     <>
-      <main className={styles.main} >
+      <main className={styles.main}>
         <div className={styles.mottoBody}>
           <div className={styles.mottoContainer}>
             <h3 className="headerText">Inspiration</h3>
@@ -24,6 +25,30 @@ export default function Index({ setIsHovered }) {
             <h3 className="headerText" style={{ color: "#39ebcc" }}>
               ISAAC KOLAWOLE
             </h3>
+          </div>
+        </div>
+      </main>
+      <main className={styles.main}>
+        <div className={styles.wrapperCalendar}>
+          <h1 className="project-heading">
+            Days I <strong className="purple">Code ( personal work )</strong>
+          </h1>
+          <div
+            className={styles.calendar}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              padding: "1rem",
+            }}
+          >
+            <GitHubCalendar
+              username="kiyoonewton"
+              blockSize={window.innerWidth < 500 ? 10 : 15} // dynamic sizing
+              blockMargin={6}
+              color="#c084f5"
+              fontSize={14}
+              colorScheme="dark"
+            />
           </div>
         </div>
       </main>
