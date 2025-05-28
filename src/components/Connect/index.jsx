@@ -49,7 +49,7 @@ export default function Index() {
           >
             <GitHubCalendar
               username="kiyoonewton"
-              blockSize={window.innerWidth < 500 ? 10 : 15} // dynamic sizing
+              blockSize={window.innerWidth < 500 ? 10 : 15}
               blockMargin={6}
               color="#c084f5"
               fontSize={14}
