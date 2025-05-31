@@ -12,6 +12,18 @@ import { WhatsApp } from "@mui/icons-material";
 
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { x, y } = useMousePosition();
 
@@ -140,6 +152,7 @@ export default function Index({}) {
           </div>
         </div>
         <video
+          key={isMobile ? "mobile" : "desktop"}
           playsinline
           autoPlay
           loop
@@ -148,7 +161,10 @@ export default function Index({}) {
           controlsList="nodownload nofullscreen noremoteplayback"
           className={styles.backgroundVideo}
         >
-          <source src="/output_gray.webm" type="video/mp4" />
+          <source
+            src={isMobile ? "/output_mobile.webm" : "/output_gray.webm"}
+            type="video/webm"
+          />
         </video>
       </div>
     </>

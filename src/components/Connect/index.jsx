@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Index() {
   return (
     <>
-      <main className={styles.main}>
+      {/* <main className={styles.main}>
         <div className={styles.mottoBody}>
           <video
             autoPlay
@@ -33,7 +33,7 @@ export default function Index() {
             <h3 className="headerText">Minh Pham</h3>
           </div>
         </div>
-      </main>
+      </main> */}
       <main className={styles.main}>
         <div className={styles.wrapperCalendar}>
           <h1 className="project-heading">

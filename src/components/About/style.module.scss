@@ -1,6 +1,5 @@
 @import "../../scss/mixins";
 
-
 .main {
   // height: 100vh;
 
@@ -25,20 +24,22 @@
       padding-right: var(--bodymarginLeft);
 
       @include respond(tab-port) {
-        margin-top: 20rem;
-        margin-bottom: 20rem;
+        margin-top: 14rem;
+        margin-bottom: 14rem;
         padding-right: var(--bodyMobileMarginLeft);
         padding-left: var(--bodyMobileMarginLeft);
       }
 
       @include respond(phone) {
         max-width: 400px;
+        margin-top: 12rem;
+        margin-bottom: 12rem;
       }
 
       p {
         max-width: 1250px;
         min-height: 6em;
-        letter-spacing: -.07em;
+        letter-spacing: -0.07em;
         font-weight: var(--bodyMdFontWeight);
         font-size: var(--bodyMdTextSize);
 
@@ -67,7 +68,13 @@
 
     @include respond(tab-port) {
       justify-content: start;
+      margin-bottom: 13rem;
+
       // height: 75vh;
+    }
+
+    @include respond(phone) {
+      margin-bottom: 12rem;
     }
 
     .servicesContainer {

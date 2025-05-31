@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Index({ setIsHovered }) {
   return (
     <>
-      <main className={styles.main}>
+      {/* <main className={styles.main}>
         <div className={styles.mottoBody}>
           <div className={styles.mottoContainer}>
             <h3 className="headerText">Inspiration</h3>
@@ -27,7 +27,7 @@ export default function Index({ setIsHovered }) {
             </h3>
           </div>
         </div>
-      </main>
+      </main> */}
       <main className={styles.main}>
         <div className={styles.wrapperCalendar}>
           <h1 className="project-heading">
