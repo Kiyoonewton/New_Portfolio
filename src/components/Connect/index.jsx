@@ -67,7 +67,7 @@ export default function Index() {
                 {[
                   {
                     link: "Resume",
-                    url: "/resume.pdf",
+                    url: "/frontend-resume.pdf",
                   },
                   {
                     link: "Instagram",
@@ -94,9 +94,9 @@ export default function Index() {
                     <span className={styles.dot}></span>
                     <h3 className={styles.infoItem} key={index}>
                       {link === "Resume" ? (
-                        <Link href={url} download="Resume">
+                        <a href={url} download="Resume">
                           {link}
-                        </Link>
+                        </a>
                       ) : (
                         <Link
                           href={url}

@@ -37,7 +37,13 @@ export default function Index({}) {
           <div className={styles.mobileShadeBottom}></div>
         </div>
         <div className={styles.navbar}>
-          <Image className={styles.logo} src="/logo.webp" alt="navbarLogo" width={60} height={60} />
+          <Image
+            className={styles.logo}
+            src="/logo.webp"
+            alt="navbarLogo"
+            width={60}
+            height={60}
+          />
           <div className={styles.links}>
             {[
               {
@@ -57,14 +63,18 @@ export default function Index({}) {
                 hash: "#contact",
               },
             ].map(({ name, hash }) => (
-              <Link key={name} className={`${isActive === name ? styles.activeLink : ""}`} href={hash}>
+              <Link
+                key={name}
+                className={`${isActive === name ? styles.activeLink : ""}`}
+                href={hash}
+              >
                 {name}
               </Link>
             ))}
           </div>
         </div>
         <div className={styles.banner}>
-          <h3 className={`${styles.nameStyle} headerText`} >ISAAC KOLAWOLE</h3>
+          <h3 className={`${styles.nameStyle} headerText`}>ISAAC KOLAWOLE</h3>
           <div className={styles.wrapper}>
             <h1>
               {[
@@ -123,13 +133,21 @@ export default function Index({}) {
               ))}
             </div>
             <div className={styles.resume}>
-              <a href="https://drive.google.com/file/d/1q3Sr2JPzE1D5fr3pEhXGy16AhjW-ef9e/view" rel="noopener noreferrer" target="_blank">
+              <a href="/frontend-resume.pdf" download={"Resume"}>
                 VIEW RESUME
               </a>
             </div>
           </div>
         </div>
-        <video playsinline autoPlay loop muted disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" className={styles.backgroundVideo}>
+        <video
+          playsinline
+          autoPlay
+          loop
+          muted
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          className={styles.backgroundVideo}
+        >
           <source src="/output_gray.webm" type="video/mp4" />
         </video>
       </div>

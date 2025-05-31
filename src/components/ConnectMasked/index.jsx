@@ -87,19 +87,19 @@ export default function Index({ setIsHovered }) {
                   <div key={url} className={styles.bullet}>
                     <span className={styles.dot}></span>
                     <h3 className={styles.infoItem} key={index}>
-                      {/* {link === "Resume" ? (
-                        <Link href={url} download="Resume">
+                      {link === "Resume" ? (
+                        <a href={url} download="Resume">
+                          {link}
+                        </a>
+                      ) : (
+                        <Link
+                          href={url}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
                           {link}
                         </Link>
-                      ) : ( */}
-                      <Link
-                        href={url}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        {link}
-                      </Link>
-                      {/* )} */}
+                      )}
                     </h3>
                   </div>
                 ))}

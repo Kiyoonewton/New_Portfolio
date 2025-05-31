@@ -110,11 +110,7 @@ export default function Index({ setIsHovered }) {
               ))}
             </div>
             <div className={styles.resume}>
-              <a
-                href="https://drive.google.com/file/d/1q3Sr2JPzE1D5fr3pEhXGy16AhjW-ef9e/view"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <a href="/frontend-resume.pdf" download={"Resume"}>
                 VIEW RESUME
               </a>
             </div>
