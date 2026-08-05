@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import { useRef } from "react";
 import FeaturedProjects from "../FeaturedProjects";
+import { trackEvent } from "../../utils/analytics";
 
 export default function Index({ featuredOpenId, onFeaturedToggle }) {
   return (
@@ -72,6 +73,13 @@ export default function Index({ featuredOpenId, onFeaturedToggle }) {
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackEvent({
+                            event: "outbound_click",
+                            label: `Clicked company: ${company}`,
+                            page: window.location.pathname,
+                          })
+                        }
                       >
                         {company}
                       </a>
@@ -83,7 +91,7 @@ export default function Index({ featuredOpenId, onFeaturedToggle }) {
           </div>
         </div>
       </main>
-      <main className={styles.main}>
+      <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsContainer}>
             <h3 className="headerText">Projects</h3>
@@ -101,7 +109,7 @@ export default function Index({ featuredOpenId, onFeaturedToggle }) {
         openId={featuredOpenId}
         onToggle={onFeaturedToggle}
       />
-      <main className={styles.main} id="project">
+      <main className={styles.main}>
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>
             <div className={styles.wrapper}>
@@ -188,6 +196,13 @@ export default function Index({ featuredOpenId, onFeaturedToggle }) {
                             href={href2}
                             rel="noopener noreferrer"
                             target="_blank"
+                            onClick={() =>
+                              trackEvent({
+                                event: "outbound_click",
+                                label: `Viewed project: ${name}`,
+                                page: window.location.pathname,
+                              })
+                            }
                           >
                             {href2 ? "Website" : ""}
                           </a>

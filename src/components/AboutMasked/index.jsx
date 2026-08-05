@@ -14,10 +14,12 @@ export default function Index({ setIsHovered }) {
               onMouseLeave={() => setIsHovered(false)}
               className="hoverTarget"
             >
-              When I'm not leading a team of engineers or shipping AI-powered
-              products, you'll find me deep in a side project, journaling,
-              or chasing a new idea that probably started with "what if we
-              just built it" over coffee.
+              I'm naturally curious, so outside of work I'm usually exploring
+              new technologies, refining ideas for side projects, or diving
+              into topics like AI, distributed systems, and software
+              architecture. Building has always been my favorite way to
+              learn, and curiosity is what keeps me improving, one late-night
+              rabbit hole at a time.
             </p>
           </div>
         </div>

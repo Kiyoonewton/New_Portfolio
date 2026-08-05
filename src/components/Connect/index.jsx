@@ -3,6 +3,7 @@ import GitHubCalendar from "../GitHubCalendarFresh";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { trackEvent } from "../../utils/analytics";
 
 export default function Index() {
   const [blockSize, setBlockSize] = useState(15);
@@ -91,31 +92,43 @@ export default function Index() {
                   {
                     link: "Mail",
                     url: "mailto:kiyoonewton41@gmail.com",
+                    contact: true,
                   },
                   {
                     link: "Whatsapp",
                     url: "https://wa.me/2348164415141",
+                    contact: true,
                   },
-                ].map(({ link, url }, index) => (
-                  <div key={url} className={styles.bullet}>
-                    <span className={styles.dot}></span>
-                    <h3 className={styles.infoItem} key={index}>
-                      {link === "Resume" ? (
-                        <a href={url} download="Resume">
-                          {link}
-                        </a>
-                      ) : (
-                        <Link
-                          href={url}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {link}
-                        </Link>
-                      )}
-                    </h3>
-                  </div>
-                ))}
+                ].map(({ link, url, contact }, index) => {
+                  const handleClick = () =>
+                    trackEvent({
+                      event: contact ? "contact_action" : "outbound_click",
+                      label: `${contact ? "Contact via" : "Clicked"} ${link}`,
+                      page: window.location.pathname,
+                    });
+
+                  return (
+                    <div key={url} className={styles.bullet}>
+                      <span className={styles.dot}></span>
+                      <h3 className={styles.infoItem} key={index}>
+                        {link === "Resume" ? (
+                          <a href={url} download="Resume" onClick={handleClick}>
+                            {link}
+                          </a>
+                        ) : (
+                          <Link
+                            href={url}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            onClick={handleClick}
+                          >
+                            {link}
+                          </Link>
+                        )}
+                      </h3>
+                    </div>
+                  );
+                })}
               </div>
               <div className={styles.infoDetails}>
                 <div>

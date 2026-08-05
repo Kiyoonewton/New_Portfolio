@@ -15,6 +15,7 @@ import { Raleway } from "@next/font/google";
 import useMousePosition from "../utils/useMousePosition";
 import { motion } from "framer-motion";
 import { featuredProjects } from "../components/FeaturedProjects/data";
+import useSectionTracking from "../utils/useSectionTracking";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ const raleway = Raleway({
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  useSectionTracking(!isLoading);
 
   useEffect(() => {
     (async () => {

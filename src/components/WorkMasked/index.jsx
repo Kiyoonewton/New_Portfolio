@@ -84,7 +84,7 @@ export default function Index({ setIsHovered, featuredOpenId, onFeaturedToggle }
           </div>
         </div>
       </main>
-      <main className={styles.main}>
+      <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsContainer}>
             <h3 className="headerText">Projects</h3>
@@ -105,7 +105,7 @@ export default function Index({ setIsHovered, featuredOpenId, onFeaturedToggle }
         onToggle={onFeaturedToggle}
         maskHidden
       />
-      <main className={styles.main} id="project">
+      <main className={styles.main}>
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>
             <div className={styles.wrapper}>

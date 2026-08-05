@@ -76,11 +76,11 @@ export default function Index({ setIsHovered }) {
                   },
                   {
                     link: "Github",
-                    url: "https://github.com/Kiyoonewton",
+                    url: "https://github.com/kiyoonewton",
                   },
                   {
                     link: "LinkedIn",
-                    url: "https://linkedIn.com/in/kiyoonewton",
+                    url: "https://www.linkedin.com/in/kiyoonewton",
                   },
                   {
                     link: "Mail",

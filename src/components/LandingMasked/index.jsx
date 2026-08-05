@@ -60,19 +60,19 @@ export default function Index({ setIsHovered }) {
             <h1>
               {[
                 {
-                  line: "SHIPPING",
+                  line: "BUILDING",
                   style: "",
                 },
                 {
-                  line: "REAL-WORLD",
+                  line: "AI-POWERED",
                   style: "",
                 },
                 {
-                  line: "SOFTWARE",
+                  line: "PLATFORMS",
                   style: "",
                 },
                 {
-                  line: "ON TIME",
+                  line: "AT SCALE",
                   style: "",
                 },
               ].map(({ line, style }) => (

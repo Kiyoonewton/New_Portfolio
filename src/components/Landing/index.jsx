@@ -9,6 +9,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { WhatsApp } from "@mui/icons-material";
+import { trackEvent } from "../../utils/analytics";
 
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
@@ -91,19 +92,19 @@ export default function Index({}) {
             <h1>
               {[
                 {
-                  line: "BUILDING",
+                  line: "SHIPPING",
                   style: "",
                 },
                 {
-                  line: "AI-POWERED",
+                  line: "REAL-WORLD",
                   style: "alternate",
                 },
                 {
-                  line: "PLATFORMS",
+                  line: "SOFTWARE",
                   style: "alternate",
                 },
                 {
-                  line: "AT SCALE",
+                  line: "ON TIME",
                   style: "",
                 },
               ].map(({ line, style }) => (
@@ -118,30 +119,56 @@ export default function Index({}) {
               {[
                 {
                   href: "https://instagram.com/kiyoonewtin",
+                  label: "Instagram",
                   component: <InstagramIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
                   href: "https://github.com/kiyoonewton",
+                  label: "GitHub",
                   component: <GitHubIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
                   href: "https://linkedin.com/in/kiyoonewton",
+                  label: "LinkedIn",
                   component: <LinkedInIcon style={{ fontSize: "2rem" }} />,
                 },
                 {
                   href: "https://wa.me/2348164415141",
+                  label: "WhatsApp",
                   component: <WhatsApp style={{ fontSize: "2rem" }} />,
+                  contact: true,
                 },
-              ].map(({ href, component }, idx) => (
+              ].map(({ href, component, label, contact }, idx) => (
                 <span key={idx}>
-                  <a href={href} rel="noopener noreferrer" target="_blank">
+                  <a
+                    href={href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    onClick={() =>
+                      trackEvent({
+                        event: contact ? "contact_action" : "outbound_click",
+                        label: `${contact ? "Contact via" : "Clicked"} ${label}`,
+                        page: window.location.pathname,
+                      })
+                    }
+                  >
                     {component}
                   </a>
                 </span>
               ))}
             </div>
             <div className={styles.resume}>
-              <a href="/frontend-resume.pdf" download={"Resume"}>
+              <a
+                href="/frontend-resume.pdf"
+                download={"Resume"}
+                onClick={() =>
+                  trackEvent({
+                    event: "outbound_click",
+                    label: "Downloaded resume",
+                    page: window.location.pathname,
+                  })
+                }
+              >
                 VIEW RESUME
               </a>
             </div>

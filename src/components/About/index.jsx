@@ -10,12 +10,13 @@ export default function Index({}) {
           <div className={styles.aboutContainer}>
             <h3 className="headerText">About Me</h3>
             <p className={styles.aboutText}>
-              Full-stack engineer with{" "}
+              Full-Stack Software Engineer with{" "}
               <span className="alternate">5+ years</span> building
-              high-traffic media platforms, AI-powered products, and
-              scalable web applications with React, Next.js, Node.js,
-              Python, and AWS. I currently lead a team of engineers while
-              shipping production software used by millions of users.
+              scalable web applications, AI-powered products, and
+              high-traffic platforms using React, Next.js, TypeScript,
+              Node.js, Python, and AWS. I lead engineering teams, design
+              production systems, and solve complex problems with
+              reliable software.
             </p>
           </div>
         </div>

@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./style.module.scss";
 import { featuredProjects } from "./data";
+import { trackEvent } from "../../utils/analytics";
 
 function ProjectCard({ project, isOpen, onToggle }) {
   const {
@@ -106,6 +107,13 @@ function ProjectCard({ project, isOpen, onToggle }) {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent({
+                    event: "outbound_click",
+                    label: `Viewed live project: ${name}`,
+                    page: window.location.pathname,
+                  })
+                }
               >
                 View live →
               </a>

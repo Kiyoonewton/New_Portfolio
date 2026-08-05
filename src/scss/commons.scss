@@ -28,7 +28,7 @@ a{
     background: var(--alternateText);
     position: absolute;
     z-index: 999;
-    color: black;
+    color: var(--primaryBg);
     top: 0;
     left: 0;
     width: 100%;
