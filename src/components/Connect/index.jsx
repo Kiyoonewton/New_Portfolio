@@ -1,5 +1,5 @@
 "use client";
-import GitHubCalendar from "react-github-calendar";
+import GitHubCalendar from "../GitHubCalendarFresh";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";

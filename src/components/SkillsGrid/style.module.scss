@@ -1,0 +1,58 @@
+@import "../../scss/mixins";
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-left: var(--bodymarginLeft);
+  padding-right: var(--bodymarginLeft);
+
+  @include respond(tab-port) {
+    padding-left: var(--bodyMobileMarginLeft);
+    padding-right: var(--bodyMobileMarginLeft);
+  }
+}
+
+.card {
+  flex: 1 1 280px;
+  max-width: 360px;
+  border: 1px solid var(--secondaryText);
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: var(--backgroundAccent);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--alternateText);
+  }
+
+  @include respond(phone) {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+.category {
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  color: var(--alternateText);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tag {
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--secondaryText);
+  border-radius: 2rem;
+  color: var(--primaryText);
+  white-space: nowrap;
+}
