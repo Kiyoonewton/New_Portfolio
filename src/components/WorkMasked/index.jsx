@@ -1,5 +1,6 @@
 "use client";
 import styles from "./style.module.scss";
+import FeaturedProjects from "../FeaturedProjects";
 
 export default function Index({ setIsHovered }) {
   return (
@@ -97,6 +98,7 @@ export default function Index({ setIsHovered }) {
           </div>
         </div>
       </main>
+      <FeaturedProjects />
       <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>

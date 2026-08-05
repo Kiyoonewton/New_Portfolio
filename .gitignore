@@ -33,3 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# unreferenced large source videos (not used by the site, too large for GitHub)
+/public/output.mp4
+/public/output_Precise_Starlight_2_5.mp4

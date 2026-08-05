@@ -105,6 +105,27 @@
           font-size: var(--servicesOtherMobileTextSize);
         }
 
+        .skillGroup {
+          margin-bottom: 3rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .skillCategory {
+          padding-left: var(--bodymarginLeft);
+          margin-bottom: 0.75rem;
+          font-size: 1.4rem;
+          letter-spacing: 0.15em;
+          color: var(--alternateText);
+          text-transform: uppercase;
+
+          @include respond(tab-port) {
+            padding-left: var(--bodyMobileMarginLeft);
+          }
+        }
+
         h1 {
           border-bottom: 1px solid var(--secondaryText) !important;
 

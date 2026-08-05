@@ -46,7 +46,7 @@ export default function Index({ setIsLoading }) {
   };
 
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const initialValue = "READY TO EXPLORE";
+  const initialValue = "CLICK LET ME SHOW YOU AROUND";
   const [text, setText] = useState(initialValue);
 
   const handleMouseOver = () => {

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./style.module.scss";
 import { useRef } from "react";
+import FeaturedProjects from "../FeaturedProjects";
 
 export default function Index({}) {
   return (
@@ -96,6 +97,7 @@ export default function Index({}) {
           </div>
         </div>
       </main>
+      <FeaturedProjects />
       <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>

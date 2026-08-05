@@ -91,23 +91,19 @@ export default function Index({}) {
             <h1>
               {[
                 {
-                  line: "DEPLOYING",
+                  line: "BUILDING",
                   style: "",
                 },
                 {
-                  line: "CLEAN",
+                  line: "AI-POWERED",
                   style: "alternate",
                 },
                 {
-                  line: "CODE",
+                  line: "PLATFORMS",
                   style: "alternate",
                 },
                 {
-                  line: "SINCE",
-                  style: "",
-                },
-                {
-                  line: "2019",
+                  line: "AT SCALE",
                   style: "",
                 },
               ].map(({ line, style }) => (
@@ -162,7 +158,7 @@ export default function Index({}) {
           className={styles.backgroundVideo}
         >
           <source
-            src={isMobile ? "/output_mobile.webm" : "/output_gray.webm"}
+            src={isMobile ? "/output_mobile.webm" : "/output.webm"}
             type="video/webm"
           />
         </video>

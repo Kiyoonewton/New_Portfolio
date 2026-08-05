@@ -39,7 +39,8 @@
 
     button {
       height: 5.275rem;
-      width: 20.5rem;
+      width: 34rem;
+      max-width: 90vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -59,7 +60,8 @@
         height: 6.8rem;
         transform: translateY(8rem);
         font-weight: 900;
-        width: 25.5rem;
+        width: 32rem;
+        max-width: 92vw;
       }
 
       p {
