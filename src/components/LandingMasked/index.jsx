@@ -55,7 +55,7 @@ export default function Index({ setIsHovered }) {
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={styles.wrapper}
+            className={`${styles.wrapper} hoverTarget`}
           >
             <h1>
               {[

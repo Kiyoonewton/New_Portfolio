@@ -7,7 +7,7 @@ export const featuredProjects = [
     problem:
       "Subscription spend is scattered across bills with no way to see it as a whole, or compare it to how other people spend.",
     solution:
-      "Led development end-to-end — architected the full data model and API layer, and built a behavioral identity engine that classifies users into spending personas from normalized monthly category spend, with explainable \"why\" breakdowns and cohort-based benchmarking by city, country, and identity segment.",
+      'Led development end-to-end — architected the full data model and API layer, and built a behavioral identity engine that classifies users into spending personas from normalized monthly category spend, with explainable "why" breakdowns and cohort-based benchmarking by city, country, and identity segment.',
     impact:
       "Diagnosed and resolved a production-blocking database migration conflict (ambiguous Drizzle table rename across 3 candidate tables), restoring a clean migration path with zero data loss.",
     image: "/projects/subtrackr.png",
@@ -47,7 +47,7 @@ export const featuredProjects = [
     solution:
       "Developed semantic vector search and RAG pipelines using LlamaIndex, plus LLM-powered content generation and tagging with the OpenAI API, backed by Qdrant for vector storage and Kafka-based event-driven workflows for scalable, decoupled processing.",
     impact: "Drove a 30% increase in content engagement and click-through.",
-    image: null,
+    image: "/projects/kiamoni.png",
     href: null,
   },
   {

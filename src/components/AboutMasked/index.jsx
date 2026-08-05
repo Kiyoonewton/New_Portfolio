@@ -11,6 +11,7 @@ export default function Index({ setIsHovered }) {
             <p
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              className="hoverTarget"
             >
               When I'm not playing my guitar, journaling or reading a book, sure
               I'll write some code... if there's good pizza.

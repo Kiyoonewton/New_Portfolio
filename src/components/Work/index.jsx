@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 import { useRef } from "react";
 import FeaturedProjects from "../FeaturedProjects";
 
-export default function Index({}) {
+export default function Index({ featuredOpenId, onFeaturedToggle }) {
   return (
     <>
       <main className={styles.main} id="work">
@@ -97,7 +97,10 @@ export default function Index({}) {
           </div>
         </div>
       </main>
-      <FeaturedProjects />
+      <FeaturedProjects
+        openId={featuredOpenId}
+        onToggle={onFeaturedToggle}
+      />
       <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>

@@ -2,7 +2,7 @@
 import styles from "./style.module.scss";
 import FeaturedProjects from "../FeaturedProjects";
 
-export default function Index({ setIsHovered }) {
+export default function Index({ setIsHovered, featuredOpenId, onFeaturedToggle }) {
   return (
     <>
       <main className={styles.main} id="work">
@@ -12,6 +12,7 @@ export default function Index({ setIsHovered }) {
             <p
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              className="hoverTarget"
             >
               With over 5 years of experience, I’ve built complex apps and clean
               UIs alongside teams of sharp, capable engineers.
@@ -90,6 +91,7 @@ export default function Index({ setIsHovered }) {
             <p
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              className="hoverTarget"
             >
               A collection of web apps where I test new ideas and concepts —
               most never quite become the next big startup, but they always
@@ -98,7 +100,11 @@ export default function Index({ setIsHovered }) {
           </div>
         </div>
       </main>
-      <FeaturedProjects />
+      <FeaturedProjects
+        openId={featuredOpenId}
+        onToggle={onFeaturedToggle}
+        maskHidden
+      />
       <main className={styles.main} id="project">
         <div className={styles.projectsBody}>
           <div className={styles.projectsTitleContainer}>

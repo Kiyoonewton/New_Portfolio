@@ -14,6 +14,7 @@ import ConnectMasked from "../components/ConnectMasked";
 import { Raleway } from "@next/font/google";
 import useMousePosition from "../utils/useMousePosition";
 import { motion } from "framer-motion";
+import { featuredProjects } from "../components/FeaturedProjects/data";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -32,6 +33,9 @@ export default function Home() {
   }, []);
 
   const [isHovered, setIsHovered] = useState(false);
+  const [featuredOpenId, setFeaturedOpenId] = useState(
+    featuredProjects[0].id
+  );
 
   const { x, y } = useMousePosition();
 
@@ -46,7 +50,10 @@ export default function Home() {
             <div>
               <Landing />
               <About setIsHovered={setIsHovered} />
-              <Work />
+              <Work
+                featuredOpenId={featuredOpenId}
+                onFeaturedToggle={setFeaturedOpenId}
+              />
               <Connect />
             </div>
             <motion.div
@@ -59,7 +66,11 @@ export default function Home() {
             >
               <LandingMasked setIsHovered={setIsHovered} />
               <AboutMasked setIsHovered={setIsHovered} />
-              <WorkMasked setIsHovered={setIsHovered} />
+              <WorkMasked
+                setIsHovered={setIsHovered}
+                featuredOpenId={featuredOpenId}
+                onFeaturedToggle={setFeaturedOpenId}
+              />
               <ConnectMasked setIsHovered={setIsHovered} />
             </motion.div>
           </div>

@@ -117,11 +117,31 @@ function ProjectCard({ project, isOpen, onToggle }) {
   );
 }
 
-export default function Index({}) {
-  const [openId, setOpenId] = useState(featuredProjects[0].id);
+export default function Index({
+  openId: controlledOpenId,
+  onToggle,
+  maskHidden,
+}) {
+  const [internalOpenId, setInternalOpenId] = useState(
+    featuredProjects[0].id
+  );
+
+  const isControlled = controlledOpenId !== undefined;
+  const openId = isControlled ? controlledOpenId : internalOpenId;
+
+  const handleToggle = (id) => {
+    if (isControlled) {
+      onToggle(openId === id ? null : id);
+    } else {
+      setInternalOpenId(openId === id ? null : id);
+    }
+  };
 
   return (
-    <main className={styles.main}>
+    <main
+      className={styles.main}
+      style={maskHidden ? { visibility: "hidden" } : undefined}
+    >
       <div className={styles.container}>
         <h3 className="headerText">Featured Projects</h3>
         <p className={styles.intro}>
@@ -135,9 +155,7 @@ export default function Index({}) {
               key={project.id}
               project={project}
               isOpen={openId === project.id}
-              onToggle={() =>
-                setOpenId(openId === project.id ? null : project.id)
-              }
+              onToggle={() => handleToggle(project.id)}
             />
           ))}
         </div>
