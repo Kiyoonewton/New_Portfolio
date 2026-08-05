@@ -14,8 +14,8 @@ export default function Index({ setIsHovered, featuredOpenId, onFeaturedToggle }
               onMouseLeave={() => setIsHovered(false)}
               className="hoverTarget"
             >
-              With over 5 years of experience, I’ve built complex apps and clean
-              UIs alongside teams of sharp, capable engineers.
+              With over 5 years of experience, I've built complex apps and
+              clean UIs alongside teams of sharp, capable engineers.
             </p>
             <h3 className={`${styles.history} headerText`}>History</h3>
           </div>

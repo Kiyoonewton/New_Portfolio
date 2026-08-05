@@ -14,8 +14,10 @@ export default function Index({ setIsHovered }) {
               onMouseLeave={() => setIsHovered(false)}
               className="hoverTarget"
             >
-              When I'm not playing my guitar, journaling or reading a book, sure
-              I'll write some code... if there's good pizza.
+              When I'm not leading a team of engineers or shipping AI-powered
+              products, you'll find me deep in a side project, journaling,
+              or chasing a new idea that probably started with "what if we
+              just built it" over coffee.
             </p>
           </div>
         </div>
