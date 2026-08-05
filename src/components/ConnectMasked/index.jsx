@@ -2,8 +2,15 @@
 import GitHubCalendar from "react-github-calendar";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Index({ setIsHovered }) {
+  const [blockSize, setBlockSize] = useState(15);
+
+  useEffect(() => {
+    setBlockSize(window.innerWidth < 500 ? 10 : 15);
+  }, []);
+
   return (
     <>
       {/* <main className={styles.main}>
@@ -43,7 +50,7 @@ export default function Index({ setIsHovered }) {
           >
             <GitHubCalendar
               username="kiyoonewton"
-              blockSize={window.innerWidth < 500 ? 10 : 15}
+              blockSize={blockSize}
               blockMargin={6}
               color="#c084f5"
               fontSize={14}
