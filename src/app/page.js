@@ -11,7 +11,7 @@ import Work from "../components/Work";
 import WorkMasked from "../components/WorkMasked";
 import Connect from "../components/Connect";
 import ConnectMasked from "../components/ConnectMasked";
-import { Raleway } from "@next/font/google";
+import { Raleway } from "next/font/google";
 import useMousePosition from "../utils/useMousePosition";
 import { motion } from "framer-motion";
 import { featuredProjects } from "../components/FeaturedProjects/data";
