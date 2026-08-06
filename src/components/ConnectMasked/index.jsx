@@ -68,7 +68,11 @@ export default function Index({ setIsHovered }) {
                 {[
                   {
                     link: "Resume",
-                    url: "/frontend-resume.pdf",
+                    url: "/resume.pdf",
+                  },
+                  {
+                    link: "Cover Letter",
+                    url: "/cover-letter.pdf",
                   },
                   {
                     link: "Instagram",
@@ -94,8 +98,8 @@ export default function Index({ setIsHovered }) {
                   <div key={url} className={styles.bullet}>
                     <span className={styles.dot}></span>
                     <h3 className={styles.infoItem} key={index}>
-                      {link === "Resume" ? (
-                        <a href={url} download="Resume">
+                      {link === "Resume" || link === "Cover Letter" ? (
+                        <a href={url} target="_blank" rel="noopener noreferrer">
                           {link}
                         </a>
                       ) : (

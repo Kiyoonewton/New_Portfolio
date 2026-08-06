@@ -122,12 +122,22 @@
         }
 
         .resume {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
             font-size: var(--navTextSize);
             transform: rotate(90deg);
             transform-origin: right;
             cursor: pointer;
 
+            a {
+                white-space: nowrap;
+            }
+
             @include respond(tab-port) {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.8rem;
                 font-size: var(--navMobileTextSize);
                 transform: none;
             }

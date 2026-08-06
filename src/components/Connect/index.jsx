@@ -75,7 +75,11 @@ export default function Index() {
                 {[
                   {
                     link: "Resume",
-                    url: "/frontend-resume.pdf",
+                    url: "/resume.pdf",
+                  },
+                  {
+                    link: "Cover Letter",
+                    url: "/cover-letter.pdf",
                   },
                   {
                     link: "Instagram",
@@ -111,8 +115,13 @@ export default function Index() {
                     <div key={url} className={styles.bullet}>
                       <span className={styles.dot}></span>
                       <h3 className={styles.infoItem} key={index}>
-                        {link === "Resume" ? (
-                          <a href={url} download="Resume" onClick={handleClick}>
+                        {link === "Resume" || link === "Cover Letter" ? (
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleClick}
+                          >
                             {link}
                           </a>
                         ) : (

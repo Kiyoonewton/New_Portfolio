@@ -159,17 +159,32 @@ export default function Index({}) {
             </div>
             <div className={styles.resume}>
               <a
-                href="/frontend-resume.pdf"
-                download={"Resume"}
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
                   trackEvent({
                     event: "outbound_click",
-                    label: "Downloaded resume",
+                    label: "Viewed resume",
                     page: window.location.pathname,
                   })
                 }
               >
                 VIEW RESUME
+              </a>
+              <a
+                href="/cover-letter.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent({
+                    event: "outbound_click",
+                    label: "Viewed cover letter",
+                    page: window.location.pathname,
+                  })
+                }
+              >
+                VIEW COVER LETTER
               </a>
             </div>
           </div>

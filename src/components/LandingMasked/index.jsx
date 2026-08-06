@@ -110,8 +110,11 @@ export default function Index({ setIsHovered }) {
               ))}
             </div>
             <div className={styles.resume}>
-              <a href="/frontend-resume.pdf" download={"Resume"}>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 VIEW RESUME
+              </a>
+              <a href="/cover-letter.pdf" target="_blank" rel="noopener noreferrer">
+                VIEW COVER LETTER
               </a>
             </div>
           </div>
