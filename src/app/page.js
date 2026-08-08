@@ -26,13 +26,24 @@ export default function Home() {
   useSectionTracking(!isLoading);
 
   useEffect(() => {
+    if (isLoading) return;
+
+    window.scrollTo(0, 0);
+
+    let locomotiveScroll;
+    let cancelled = false;
+
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
-
-      !isLoading && window.scrollTo(0, 0);
+      if (cancelled) return;
+      locomotiveScroll = new LocomotiveScroll();
     })();
-  }, []);
+
+    return () => {
+      cancelled = true;
+      locomotiveScroll?.destroy();
+    };
+  }, [isLoading]);
 
   const [isHovered, setIsHovered] = useState(false);
   const [featuredOpenId, setFeaturedOpenId] = useState(

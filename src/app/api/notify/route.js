@@ -6,6 +6,7 @@ const EVENT_EMOJI = {
   contact_action: "📩",
   section_view: "📜",
   blog_view: "📝",
+  video_load: "🎬",
 };
 
 function formatMessage({
@@ -21,6 +22,8 @@ function formatMessage({
   visitor,
   utm,
   duration,
+  videoVariant,
+  loadMs,
 }) {
   const emoji = EVENT_EMOJI[event] || "📊";
   const lines = [`${emoji} *${label}*`];
@@ -34,6 +37,8 @@ function formatMessage({
   if (visitor) lines.push(`Visitor: ${visitor}`);
   if (utm) lines.push(`Campaign: ${utm}`);
   if (duration) lines.push(`Time on page: ${duration}`);
+  if (videoVariant) lines.push(`Video: ${videoVariant}`);
+  if (loadMs !== undefined) lines.push(`Load time: ${(loadMs / 1000).toFixed(1)}s`);
 
   return lines.join("\n");
 }

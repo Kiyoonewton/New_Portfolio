@@ -2,7 +2,7 @@
 import styles from "./style.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import useMousePosition from "../../utils/useMousePosition";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -14,6 +14,8 @@ import { trackEvent } from "../../utils/analytics";
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
   const [isMobile, setIsMobile] = useState(false);
+  const videoLoadStart = useRef(null);
+  const videoOutcomeSent = useRef(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -25,6 +27,56 @@ export default function Index({}) {
 
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+    videoLoadStart.current = Date.now();
+    videoOutcomeSent.current = false;
+
+    const stallTimer = setTimeout(() => {
+      if (videoOutcomeSent.current) return;
+
+      trackEvent({
+        event: "video_load",
+        label: "Hero video still buffering after 8s",
+        page: window.location.pathname,
+        extra: { videoVariant: isMobile ? "mobile" : "desktop" },
+        useBeacon: true,
+      });
+    }, 8000);
+
+    return () => clearTimeout(stallTimer);
+  }, [isMobile]);
+
+  const handleVideoCanPlay = () => {
+    if (videoOutcomeSent.current) return;
+    videoOutcomeSent.current = true;
+
+    const loadMs = videoLoadStart.current
+      ? Date.now() - videoLoadStart.current
+      : undefined;
+
+    trackEvent({
+      event: "video_load",
+      label: "Hero video ready",
+      page: window.location.pathname,
+      extra: {
+        videoVariant: isMobile ? "mobile" : "desktop",
+        loadMs,
+      },
+    });
+  };
+
+  const handleVideoError = () => {
+    if (videoOutcomeSent.current) return;
+    videoOutcomeSent.current = true;
+
+    trackEvent({
+      event: "video_load",
+      label: "Hero video failed to load",
+      page: window.location.pathname,
+      extra: { videoVariant: isMobile ? "mobile" : "desktop" },
+    });
+  };
 
   const { x, y } = useMousePosition();
 
@@ -191,13 +243,15 @@ export default function Index({}) {
         </div>
         <video
           key={isMobile ? "mobile" : "desktop"}
-          playsinline
+          playsInline
           autoPlay
           loop
           muted
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
           className={styles.backgroundVideo}
+          onCanPlayThrough={handleVideoCanPlay}
+          onError={handleVideoError}
         >
           <source
             src={isMobile ? "/output_mobile.webm" : "/output.webm"}

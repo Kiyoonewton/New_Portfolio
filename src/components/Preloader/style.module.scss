@@ -37,48 +37,41 @@
       overflow: hidden;
     }
 
-    button {
-      height: 5.275rem;
-      width: 34rem;
-      max-width: 90vw;
+    .badge {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      color: #b7ab98;
-      padding: 1px 6px;
+      gap: 0.4rem;
+      padding: 1.4rem 3rem;
       border: 1px solid #b7ab98;
       border-radius: 4.375rem;
-      background: transparent;
-      cursor: pointer;
       transform: translateY(4rem);
-      transition: all ease-in-out 0.5s;
-      letter-spacing: 4px;
-      font-weight: 700;
-      text-transform: uppercase;
 
       @include respond(phone) {
-        height: 6.8rem;
         transform: translateY(8rem);
-        font-weight: 900;
-        width: 32rem;
-        max-width: 92vw;
       }
 
-      p {
-        color: inherit;
+      .name {
+        color: #b7ab98;
+        letter-spacing: 4px;
+        font-weight: 700;
+        font-size: 1.6rem;
         text-transform: uppercase;
-        font-weight: bold;
-        font-size: 5rem;
-        // font-size: 42px;
 
         @include respond(phone) {
-          font-size: 1.7rem;
+          font-size: 1.4rem;
         }
       }
 
-      &:hover {
-        background-color: var(--primaryText);
-        color: black;
+      .title {
+        color: var(--primaryText);
+        letter-spacing: 2px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+
+        @include respond(phone) {
+          font-size: 1.1rem;
+        }
       }
     }
   }

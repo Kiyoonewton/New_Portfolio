@@ -1,6 +1,6 @@
 "use client";
 import styles from "./style.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp, fadeIn } from "./anim";
 import Image from "next/image";
@@ -8,17 +8,13 @@ import Image from "next/image";
 export default function Index({ setIsLoading }) {
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
-  const videoRef = useRef(null);
-
-  const handleButtonClick = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-
-    setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 100);
-  };
+    }, 1400);
+
+    return () => clearTimeout(timer);
+  }, [setIsLoading]);
 
   // useEffect(() => {
   //   if (index == words.length - 1) return;
@@ -45,33 +41,6 @@ export default function Index({ setIsLoading }) {
     },
   };
 
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const initialValue = "CLICK LET ME SHOW YOU AROUND";
-  const [text, setText] = useState(initialValue);
-
-  const handleMouseOver = () => {
-    let iteration = 0;
-    const interval = setInterval(() => {
-      setText((prevText) => {
-        return prevText
-          .split("")
-          .map((letter, index) => {
-            if (index < iteration) {
-              return initialValue[index];
-            }
-            return letters[Math.floor(Math.random() * 26)];
-          })
-          .join("");
-      });
-
-      if (iteration >= initialValue.length) {
-        clearInterval(interval);
-      }
-
-      iteration += 1 / 3;
-    }, 30);
-  };
-
   return (
     <motion.div variants={slideUp} initial="initial" exit="exit" className={styles.introduction}>
       {dimension.width > 0 && (
@@ -79,25 +48,15 @@ export default function Index({ setIsLoading }) {
           <motion.div variants={fadeIn} initial="initial" animate="enter" className={styles.start}>
             <Image className={styles.img} src="/logo.webp" alt="preloaderLogo" width={200} height={200} />
 
-            {/* <video
-              ref={videoRef}
-              src="https://web.steep.app/assets/door-300p-black-BUPZS7eZ.mp4"
-              muted
-              preload="auto"
-              playsInline
-              width={200}
-            ></video> */}
-
-            {/* <motion.div variants={opacity} initial="initial" animate="enter" className={styles.text}>
-              <span className={styles.bullet}></span>
-              <p>
-                {words[index]}
-              </p>
-            </motion.div> */}
-            <button onClick={handleButtonClick} className={styles.button} onMouseOver={handleMouseOver}>
-              {text}
-            </button>
-            {/* <h1 onMouseOver={handleMouseOver}>{text}</h1> */}
+            <motion.div
+              variants={opacity}
+              initial="initial"
+              animate="enter"
+              className={styles.badge}
+            >
+              <p className={styles.name}>Isaac Kolawole</p>
+              <p className={styles.title}>Full-Stack Engineer</p>
+            </motion.div>
           </motion.div>
           <svg>
             <motion.path variants={curve} initial="initial" exit="exit"></motion.path>
