@@ -247,10 +247,11 @@ export default function Index({}) {
           autoPlay
           loop
           muted
+          preload="auto"
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
           className={styles.backgroundVideo}
-          onCanPlayThrough={handleVideoCanPlay}
+          onCanPlay={handleVideoCanPlay}
           onError={handleVideoError}
         >
           <source
