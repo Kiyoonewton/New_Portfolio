@@ -1,5 +1,12 @@
 import { NextResponse } from "next/server";
 
+const BOT_UA_PATTERN =
+  /bot|crawl|spider|slurp|facebookexternalhit|slackbot|whatsapp|telegrambot|discordbot|linkedinbot|read-aloud|google-read-aloud|headlesschrome|pingdom|uptimerobot|monitor|preview|fetch|curl|wget|python-requests|axios|go-http-client/i;
+
+function isBot(userAgent) {
+  return !!userAgent && BOT_UA_PATTERN.test(userAgent);
+}
+
 const EVENT_EMOJI = {
   page_visit: "👀",
   outbound_click: "🔗",
@@ -61,6 +68,10 @@ export async function POST(request) {
   const country = request.headers.get("x-vercel-ip-country") || undefined;
   const city = request.headers.get("x-vercel-ip-city") || undefined;
   const userAgent = request.headers.get("user-agent") || undefined;
+
+  if (isBot(userAgent)) {
+    return NextResponse.json({ ok: true, skipped: "bot" });
+  }
 
   const text = formatMessage({
     ...body,
