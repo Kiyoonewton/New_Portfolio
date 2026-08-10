@@ -258,6 +258,7 @@ export default function Index({}) {
             src={isMobile ? "/output_mobile.webm" : "/output.webm"}
             type="video/webm"
           />
+          {isMobile && <source src="/output_mobile.mp4" type="video/mp4" />}
         </video>
       </div>
     </>

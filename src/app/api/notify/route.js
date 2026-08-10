@@ -24,6 +24,7 @@ function formatMessage({
   duration,
   videoVariant,
   loadMs,
+  userAgent,
 }) {
   const emoji = EVENT_EMOJI[event] || "📊";
   const lines = [`${emoji} *${label}*`];
@@ -39,6 +40,7 @@ function formatMessage({
   if (duration) lines.push(`Time on page: ${duration}`);
   if (videoVariant) lines.push(`Video: ${videoVariant}`);
   if (loadMs !== undefined) lines.push(`Load time: ${(loadMs / 1000).toFixed(1)}s`);
+  if (userAgent) lines.push(`UA: \`${userAgent}\``);
 
   return lines.join("\n");
 }
@@ -58,8 +60,14 @@ export async function POST(request) {
 
   const country = request.headers.get("x-vercel-ip-country") || undefined;
   const city = request.headers.get("x-vercel-ip-city") || undefined;
+  const userAgent = request.headers.get("user-agent") || undefined;
 
-  const text = formatMessage({ ...body, country, city: city && decodeURIComponent(city) });
+  const text = formatMessage({
+    ...body,
+    country,
+    city: city && decodeURIComponent(city),
+    userAgent,
+  });
 
   const res = await fetch(webhookUrl, {
     method: "POST",
