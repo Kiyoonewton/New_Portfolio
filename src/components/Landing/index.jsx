@@ -14,6 +14,7 @@ import { trackEvent } from "../../utils/analytics";
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
   const [isMobile, setIsMobile] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const videoLoadStart = useRef(null);
   const videoOutcomeSent = useRef(false);
 
@@ -23,6 +24,7 @@ export default function Index({}) {
     };
 
     checkMobile();
+    setHasMounted(true);
     window.addEventListener("resize", checkMobile);
 
     return () => window.removeEventListener("resize", checkMobile);
@@ -241,25 +243,36 @@ export default function Index({}) {
             </div>
           </div>
         </div>
-        <video
-          key={isMobile ? "mobile" : "desktop"}
-          playsInline
-          autoPlay
-          loop
-          muted
-          preload="auto"
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
-          className={styles.backgroundVideo}
-          onCanPlay={handleVideoCanPlay}
-          onError={handleVideoError}
-        >
-          <source
-            src={isMobile ? "/output_mobile.webm" : "/output.webm"}
-            type="video/webm"
+        {hasMounted ? (
+          <video
+            key={isMobile ? "mobile" : "desktop"}
+            playsInline
+            autoPlay
+            loop
+            muted
+            preload="auto"
+            poster="/hero-poster.jpg"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            className={styles.backgroundVideo}
+            onCanPlay={handleVideoCanPlay}
+            onError={handleVideoError}
+          >
+            <source
+              src={isMobile ? "/output_mobile.webm" : "/output.webm"}
+              type="video/webm"
+            />
+            {isMobile && <source src="/output_mobile.mp4" type="video/mp4" />}
+          </video>
+        ) : (
+          <Image
+            src="/hero-poster.jpg"
+            alt="Isaac Kolawole working at his desk"
+            fill
+            priority
+            className={styles.backgroundVideo}
           />
-          {isMobile && <source src="/output_mobile.mp4" type="video/mp4" />}
-        </video>
+        )}
       </div>
     </>
   );
