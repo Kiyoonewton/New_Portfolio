@@ -51,7 +51,15 @@ function getUtm() {
   }
 }
 
-export function trackEvent({ event, label, page, referrer, extra, useBeacon }) {
+export function trackEvent({
+  event,
+  label,
+  page,
+  referrer,
+  extra,
+  useBeacon,
+  skipSlack,
+}) {
   if (typeof window === "undefined") return;
 
   if (window.gtag) {
@@ -61,6 +69,8 @@ export function trackEvent({ event, label, page, referrer, extra, useBeacon }) {
       transport_type: "beacon",
     });
   }
+
+  if (skipSlack) return;
 
   const { device, os, browser } = parseDevice(navigator.userAgent);
 

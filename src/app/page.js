@@ -16,6 +16,7 @@ import useMousePosition from "../utils/useMousePosition";
 import { motion } from "framer-motion";
 import { featuredProjects } from "../components/FeaturedProjects/data";
 import useSectionTracking from "../utils/useSectionTracking";
+import useInteractionTracking from "../utils/useInteractionTracking";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ const raleway = Raleway({
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   useSectionTracking(!isLoading);
+  useInteractionTracking(!isLoading);
 
   useEffect(() => {
     if (isLoading) return;
