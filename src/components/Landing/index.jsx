@@ -17,6 +17,7 @@ export default function Index({}) {
   const [hasMounted, setHasMounted] = useState(false);
   const videoLoadStart = useRef(null);
   const videoOutcomeSent = useRef(false);
+  const posterOutcomeSent = useRef(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -48,6 +49,27 @@ export default function Index({}) {
 
     return () => clearTimeout(stallTimer);
   }, [isMobile]);
+
+  useEffect(() => {
+    if (posterOutcomeSent.current) return;
+
+    const probe = new window.Image();
+    probe.onload = () => {
+      if (posterOutcomeSent.current) return;
+      posterOutcomeSent.current = true;
+    };
+    probe.onerror = () => {
+      if (posterOutcomeSent.current) return;
+      posterOutcomeSent.current = true;
+
+      trackEvent({
+        event: "video_load",
+        label: "Hero poster image failed to load",
+        page: window.location.pathname,
+      });
+    };
+    probe.src = "/hero-poster.jpg";
+  }, []);
 
   const handleVideoCanPlay = () => {
     if (videoOutcomeSent.current) return;
