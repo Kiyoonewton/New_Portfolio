@@ -14,17 +14,32 @@ function describeTarget(el) {
   return [tag, id, text].filter(Boolean).join(" ").trim() || tag;
 }
 
-export default function useInteractionTracking(ready) {
-  const moveStats = useRef({
+function describePoint(x, y) {
+  const el = document.elementFromPoint(x, y);
+  if (!el) return `(${x}, ${y})`;
+
+  const section = el.closest("[id]");
+  const label = section?.id ? `"${section.id}" section` : describeTarget(el);
+  return `${label} (${x}, ${y})`;
+}
+
+function freshStats() {
+  return {
     samples: 0,
     minX: Infinity,
     minY: Infinity,
     maxX: -Infinity,
     maxY: -Infinity,
+    firstX: null,
+    firstY: null,
     lastX: null,
     lastY: null,
     distance: 0,
-  });
+  };
+}
+
+export default function useInteractionTracking(ready) {
+  const moveStats = useRef(freshStats());
 
   useEffect(() => {
     if (!ready) return;
@@ -53,6 +68,10 @@ export default function useInteractionTracking(ready) {
       s.minY = Math.min(s.minY, e.clientY);
       s.maxX = Math.max(s.maxX, e.clientX);
       s.maxY = Math.max(s.maxY, e.clientY);
+      if (s.firstX === null) {
+        s.firstX = e.clientX;
+        s.firstY = e.clientY;
+      }
       if (s.lastX !== null) {
         s.distance += Math.hypot(e.clientX - s.lastX, e.clientY - s.lastY);
       }
@@ -64,25 +83,19 @@ export default function useInteractionTracking(ready) {
       const s = moveStats.current;
       if (s.samples === 0) return;
 
+      const from = describePoint(s.firstX, s.firstY);
+      const to = describePoint(s.lastX, s.lastY);
+
       trackEvent({
         event: "mouse_activity",
         label: "Mouse activity (30s)",
         page: window.location.pathname,
         extra: {
-          duration: `${Math.round(s.distance)}px moved`,
+          duration: `${Math.round(s.distance)}px moved · ${from} → ${to}`,
         },
       });
 
-      moveStats.current = {
-        samples: 0,
-        minX: Infinity,
-        minY: Infinity,
-        maxX: -Infinity,
-        maxY: -Infinity,
-        lastX: null,
-        lastY: null,
-        distance: 0,
-      };
+      moveStats.current = freshStats();
     }, 30000);
 
     document.addEventListener("click", onClick, true);
