@@ -51,10 +51,19 @@ export default function Home() {
   const [featuredOpenId, setFeaturedOpenId] = useState(
     featuredProjects[0].id
   );
+  const [viewportWidth, setViewportWidth] = useState(1200);
+
+  useEffect(() => {
+    const updateWidth = () => setViewportWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const { x, y } = useMousePosition();
 
-  const size = isHovered ? 400 : 30;
+  const hoverSize = Math.min(400, viewportWidth * 0.35);
+  const size = isHovered ? hoverSize : 30;
 
   return (
     <main className={`${styles.main} ${raleway.className}`}>
