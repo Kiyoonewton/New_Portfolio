@@ -48,8 +48,19 @@
       color: var(--linkText);
       text-transform: uppercase;
 
+      a {
+        display: inline-flex;
+        align-items: center;
+      }
+
       @include respond(tab-port) {
         font-size: var(--navMobileTextSize);
+        gap: 4px;
+
+        a {
+          min-height: 44px;
+          padding: 0 8px;
+        }
       }
 
       .activeLink {

@@ -158,8 +158,17 @@
               font-size: 3rem;
               color: var(--primaryText);
 
+              a {
+                display: inline-block;
+              }
+
               @include respond(phone) {
                 font-size: 3.5rem;
+
+                a {
+                  min-height: 44px;
+                  padding: 0.5rem 0;
+                }
               }
             }
 
