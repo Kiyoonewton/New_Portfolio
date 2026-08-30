@@ -102,6 +102,12 @@ export default function Index({}) {
     });
   };
 
+  const handleVideoPause = (e) => {
+    const video = e.target;
+    if (video.ended || document.hidden) return;
+    video.play().catch(() => {});
+  };
+
   const { x, y } = useMousePosition();
 
   useEffect(() => {
@@ -279,6 +285,7 @@ export default function Index({}) {
             className={styles.backgroundVideo}
             onCanPlay={handleVideoCanPlay}
             onError={handleVideoError}
+            onPause={handleVideoPause}
           >
             <source
               src={isMobile ? "/output_mobile.webm" : "/output.webm"}
