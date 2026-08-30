@@ -174,20 +174,16 @@ export default function Index({}) {
             <h1>
               {[
                 {
-                  line: "SHIPPING",
+                  line: "FULL-STACK",
                   style: "",
                 },
                 {
-                  line: "REAL-WORLD",
-                  style: "alternate",
-                },
-                {
-                  line: "SOFTWARE",
-                  style: "alternate",
-                },
-                {
-                  line: "ON TIME",
+                  line: "ENGINEER",
                   style: "",
+                },
+                {
+                  line: "REACT · NODE · AWS",
+                  style: "alternate",
                 },
               ].map(({ line, style }) => (
                 <div className={`${styles.line} line`} key={line}>
