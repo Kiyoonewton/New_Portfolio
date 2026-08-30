@@ -136,7 +136,9 @@
       cursor: pointer;
 
       a {
+        display: inline-block;
         white-space: nowrap;
+        padding: 1.2rem 0.4rem;
       }
 
       @include respond(tab-port) {
