@@ -185,27 +185,31 @@ export default function Index({ featuredOpenId, onFeaturedToggle }) {
                       <div className={styles.details}>
                         <span className={styles.stack}>{stack}</span>
                         <span className={styles.redirects}>
-                          <a
-                            href={href1}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            {href1 ? "Github" : ""}
-                          </a>
-                          <a
-                            href={href2}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            onClick={() =>
-                              trackEvent({
-                                event: "outbound_click",
-                                label: `Viewed project: ${name}`,
-                                page: window.location.pathname,
-                              })
-                            }
-                          >
-                            {href2 ? "Website" : ""}
-                          </a>
+                          {href1 && (
+                            <a
+                              href={href1}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Github
+                            </a>
+                          )}
+                          {href2 && (
+                            <a
+                              href={href2}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                              onClick={() =>
+                                trackEvent({
+                                  event: "outbound_click",
+                                  label: `Viewed project: ${name}`,
+                                  page: window.location.pathname,
+                                })
+                              }
+                            >
+                              Website
+                            </a>
+                          )}
                         </span>
                       </div>
                     </div>

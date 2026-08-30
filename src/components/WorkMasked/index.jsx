@@ -172,20 +172,24 @@ export default function Index({ setIsHovered, featuredOpenId, onFeaturedToggle }
                       <div className={styles.details}>
                         <span className={styles.stack}>{stack}</span>
                         <span className={styles.redirects}>
-                          <a
-                            href={href1}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            {href1 ? "Github" : ""}
-                          </a>
-                          <a
-                            href={href2}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            {href2 ? "Website" : ""}
-                          </a>
+                          {href1 && (
+                            <a
+                              href={href1}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Github
+                            </a>
+                          )}
+                          {href2 && (
+                            <a
+                              href={href2}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Website
+                            </a>
+                          )}
                         </span>
                       </div>
                     </div>
