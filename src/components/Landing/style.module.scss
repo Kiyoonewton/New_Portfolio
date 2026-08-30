@@ -147,6 +147,13 @@
         gap: 0.8rem;
         font-size: var(--navMobileTextSize);
         transform: none;
+
+        a {
+          display: flex;
+          align-items: center;
+          min-height: 44px;
+          padding: 0.6rem 1rem;
+        }
       }
     }
   }
