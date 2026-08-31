@@ -65,6 +65,12 @@ export default function Home() {
   const hoverSize = Math.min(400, viewportWidth * 0.35);
   const size = isHovered ? hoverSize : 30;
 
+  // Keep the cursor-reveal circle out of the rightmost 20% of the
+  // viewport, where the hero's resume/cover-letter links live, so it
+  // never visually covers them.
+  const maskSafeZoneX = viewportWidth * 0.8 - size / 2;
+  const maskX = Math.min(x, maskSafeZoneX);
+
   return (
     <main className={`${styles.main} ${raleway.className}`}>
       <AnimatePresence mode="wait">{isLoading && <Preloader setIsLoading={setIsLoading} />}</AnimatePresence>
@@ -83,7 +89,7 @@ export default function Home() {
             <motion.div
               className="mask"
               animate={{
-                WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+                WebkitMaskPosition: `${maskX - size / 2}px ${y - size / 2}px`,
                 WebkitMaskSize: `${size}px`,
               }}
               transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
