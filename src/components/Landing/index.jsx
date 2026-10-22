@@ -174,15 +174,15 @@ export default function Index({}) {
             <h1>
               {[
                 {
-                  line: "FULL-STACK",
+                  line: "🚀 Hire Me Today",
                   style: "",
                 },
                 {
-                  line: "ENGINEER",
+                  line: "for Just",
                   style: "",
                 },
                 {
-                  line: "REACT · NODE · AWS",
+                  line: "$5/Hour!",
                   style: "alternate",
                 },
               ].map(({ line, style }) => (
@@ -192,6 +192,9 @@ export default function Index({}) {
               ))}
             </h1>
           </div>
+          <p className={styles.hiringDetails}>
+            5+ Years of Software Engineering Experience | Quality Work | Reliable Delivery
+          </p>
           <div className={styles.options}>
             <div className={styles.icons}>
               {[

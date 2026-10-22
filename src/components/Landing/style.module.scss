@@ -82,17 +82,16 @@
     .wrapper {
       display: flex;
       flex-direction: column;
-      font-size: var(--bannerTextSize);
+      font-size: clamp(2rem, 3.6vw, 6rem);
       line-height: 165%;
       letter-spacing: -0.15em;
-      text-transform: uppercase;
 
       @include respond(tab-land) {
-        font-size: var(--bannerTabletTextSize);
+        font-size: clamp(2rem, 3.6vw, 4rem);
       }
 
       @include respond(tab-port) {
-        font-size: var(--bannerMobileTextSize);
+        font-size: clamp(1.4rem, 4.5vw, 3rem);
       }
 
       h1 {
@@ -100,6 +99,13 @@
           overflow: hidden;
         }
       }
+    }
+
+    .hiringDetails {
+      max-width: min(65rem, 80vw);
+      font-size: clamp(1.4rem, 1.4vw, 2rem);
+      line-height: 1.6;
+      letter-spacing: normal;
     }
   }
 
