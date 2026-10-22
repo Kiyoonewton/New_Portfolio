@@ -74,6 +74,7 @@
     flex-direction: column;
     gap: 4rem;
     margin-left: var(--bodymarginLeft);
+    width: calc(100% - var(--bodymarginLeft) - 3rem);
 
     @include respond(tab-port) {
       margin-top: -15rem;
@@ -83,8 +84,8 @@
       display: flex;
       flex-direction: column;
       font-size: clamp(2rem, 3.6vw, 6rem);
-      line-height: 165%;
-      letter-spacing: -0.15em;
+      line-height: 1.2;
+      letter-spacing: -0.045em;
 
       @include respond(tab-land) {
         font-size: clamp(2rem, 3.6vw, 4rem);
@@ -95,8 +96,12 @@
       }
 
       h1 {
+        font-size: 2em;
+        line-height: 1.2;
+
         .line {
           overflow: hidden;
+          padding-block: 0.12em;
         }
       }
     }
