@@ -2,6 +2,8 @@
 import styles from "./style.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { createPortal } from "react-dom";
+import { Raleway } from "next/font/google";
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import useMousePosition from "../../utils/useMousePosition";
@@ -10,6 +12,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { WhatsApp } from "@mui/icons-material";
 import { trackEvent } from "../../utils/analytics";
+
+const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Index({}) {
   const [isActive, setIsActive] = useState("about");
@@ -195,7 +199,42 @@ export default function Index({}) {
           <p className={styles.hiringDetails}>
             5+ Years of Software Engineering Experience | Quality Work | Reliable Delivery
           </p>
-          <div className={styles.options}>
+
+        </div>
+        {hasMounted ? (
+          <video
+            key={isMobile ? "mobile" : "desktop"}
+            playsInline
+            autoPlay
+            loop
+            muted
+            preload="auto"
+            poster="/hero-poster.jpg"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            className={styles.backgroundVideo}
+            onCanPlay={handleVideoCanPlay}
+            onError={handleVideoError}
+            onPause={handleVideoPause}
+          >
+            <source
+              src={isMobile ? "/output_mobile.webm" : "/output.webm"}
+              type="video/webm"
+            />
+            {isMobile && <source src="/output_mobile.mp4" type="video/mp4" />}
+          </video>
+        ) : (
+          <Image
+            src="/hero-poster.jpg"
+            alt="Isaac Kolawole working at his desk"
+            fill
+            priority
+            className={styles.backgroundVideo}
+          />
+        )}
+      </div>
+      {hasMounted && createPortal(
+        <div className={`${styles.options} ${raleway.className}`}>
             <div className={styles.icons}>
               {[
                 {
@@ -269,39 +308,8 @@ export default function Index({}) {
               </a>
             </div>
           </div>
-        </div>
-        {hasMounted ? (
-          <video
-            key={isMobile ? "mobile" : "desktop"}
-            playsInline
-            autoPlay
-            loop
-            muted
-            preload="auto"
-            poster="/hero-poster.jpg"
-            disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"
-            className={styles.backgroundVideo}
-            onCanPlay={handleVideoCanPlay}
-            onError={handleVideoError}
-            onPause={handleVideoPause}
-          >
-            <source
-              src={isMobile ? "/output_mobile.webm" : "/output.webm"}
-              type="video/webm"
-            />
-            {isMobile && <source src="/output_mobile.mp4" type="video/mp4" />}
-          </video>
-        ) : (
-          <Image
-            src="/hero-poster.jpg"
-            alt="Isaac Kolawole working at his desk"
-            fill
-            priority
-            className={styles.backgroundVideo}
-          />
-        )}
-      </div>
+        , document.body
+      )}
     </>
   );
 }
