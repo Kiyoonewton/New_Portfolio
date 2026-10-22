@@ -182,7 +182,7 @@ export default function Index({}) {
                   style: "",
                 },
                 {
-                  line: "$5/Hour!",
+                  line: "$5/hr!",
                   style: "alternate",
                 },
               ].map(({ line, style }) => (
