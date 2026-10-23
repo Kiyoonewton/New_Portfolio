@@ -109,14 +109,7 @@ export default function Index({ setIsHovered }) {
                 </span>
               ))}
             </div>
-            <div className={styles.resume}>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                VIEW RESUME
-              </a>
-              <a href="/cover-letter.pdf" target="_blank" rel="noopener noreferrer">
-                VIEW COVER LETTER
-              </a>
-            </div>
+            {/* Document links live above the mask in Landing's portal. */}
           </div>
         </div>
       </div>
