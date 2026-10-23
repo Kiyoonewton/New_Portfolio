@@ -1,5 +1,7 @@
 @import "../../scss/mixins";
 
+$heroPanelBackground: rgba(0, 0, 0, 0.6);
+
 .container {
   width: 100vw;
   min-height: 100vh;
@@ -109,7 +111,7 @@
     .hiringDetails {
       max-width: min(65rem, 80vw);
       width: fit-content;
-      background: rgba(0, 0, 0, 0.6);
+      background: $heroPanelBackground;
       padding: 1.2rem 1.6rem;
       border-radius: 1rem;
       font-size: clamp(1.4rem, 1.4vw, 2rem);
@@ -223,9 +225,21 @@
     cursor: pointer;
 
     a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
       white-space: nowrap;
-      padding: 1.2rem 0.4rem;
+      padding: 1.2rem 1.6rem;
+      background: $heroPanelBackground;
+      border-radius: 1rem;
+      color: var(--primaryText);
+      pointer-events: auto;
+
+      &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 4px;
+      }
     }
 
     @include respond(tab-port) {
